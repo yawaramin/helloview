@@ -12,7 +12,7 @@ class HelloView extends Application {
     val root = new StackPane
     val scene = new Scene(root, 300, 250)
 
-    btn setText controller.btnText
+    btn setText controller.btnText()
     btn setOnAction controller.handleClickBtn
     root.getChildren add btn
     stage setTitle "Hello, World!"
@@ -32,7 +32,7 @@ private class HelloController {
   import java.util.concurrent.atomic.AtomicInteger
   import javafx.event.ActionEvent
 
-  def btnText: String = btnText(count.get)
+  def btnText(): String = btnText(count.get())
   def handleClickBtn(event: ActionEvent): Unit = event
     .getSource
     .asInstanceOf[Button]
